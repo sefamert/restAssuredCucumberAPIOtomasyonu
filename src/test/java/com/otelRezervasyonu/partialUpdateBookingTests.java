@@ -16,14 +16,14 @@ public class partialUpdateBookingTests extends baseTest{
         changeBookingPartial.put("firstname" , "Cafer");
         changeBookingPartial.put("lastname" , "hızlı");
 
-        Response response = given()
+        Response response = given(spec)
                             .when()
                             .contentType(ContentType.JSON)
                             .header("Cookie" , "token=" + token)
                             .body(changeBookingPartial.toString())
-                            .patch("https://restful-booker.herokuapp.com/booking/" + changeBookingId);
+                            .patch("booking/" + changeBookingId);
 
-        response.prettyPrint();
+        //response.prettyPrint();
         response
                 .then()
                 .statusCode(200);

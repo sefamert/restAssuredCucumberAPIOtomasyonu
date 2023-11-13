@@ -12,11 +12,11 @@ public class deleteBookingTests extends baseTest{
         String token = createToken();
         int bookingIDforDelete = getBookingID();
 
-        Response response1 = given()
+        Response response1 = given(spec)
                             .when()
                             .contentType(ContentType.JSON)
                             .header("Cookie" , "token=" + token)
-                            .delete("https://restful-booker.herokuapp.com/booking/"+ bookingIDforDelete);
+                            .delete("booking/"+ bookingIDforDelete);
 
         response1
                 .then()
