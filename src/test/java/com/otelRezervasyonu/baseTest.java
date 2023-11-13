@@ -8,6 +8,11 @@ import static io.restassured.RestAssured.given;
 
 public class baseTest
 {
+    protected  int getBookingID(){
+        Response createBookingJsonObject = createBooking();
+        int bookingID = createBookingJsonObject.jsonPath().getJsonObject("bookingid");
+        return bookingID;
+    }
     protected String bookingObject(){
 
     JSONObject body = new JSONObject();
@@ -38,5 +43,18 @@ public class baseTest
                 .then()
                 .statusCode(200);
         return response;
+    }
+    protected String createToken() {
+        JSONObject userAndPassword = new JSONObject();
+        userAndPassword.put("username", "admin");
+        userAndPassword.put("password", "password123");
+        Response response = given()
+                .when()
+                .contentType(ContentType.JSON)
+                .body(userAndPassword.toString())
+                .post("https://restful-booker.herokuapp.com/auth");
+        response.prettyPrint();
+
+        return response.jsonPath().getJsonObject("token");
     }
 }
