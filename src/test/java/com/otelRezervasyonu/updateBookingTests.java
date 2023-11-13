@@ -43,19 +43,4 @@ public class updateBookingTests extends baseTest {
         response.prettyPrint();
 
     }
-
-    @Test
-    public String createToken() {
-        JSONObject userAndPassword = new JSONObject();
-        userAndPassword.put("username", "admin");
-        userAndPassword.put("password", "password123");
-        Response response = given()
-                .when()
-                .contentType(ContentType.JSON)
-                .body(userAndPassword.toString())
-                .post("https://restful-booker.herokuapp.com/auth");
-        response.prettyPrint();
-
-        return response.jsonPath().getJsonObject("token");
-    }
 }
