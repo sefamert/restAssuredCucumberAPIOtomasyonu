@@ -32,7 +32,7 @@ public class updateBookingTests extends baseTest {
         //2.Rezervasyon oluştur.
         Response createBookingJsonObject = createBooking();
         int bookingID = createBookingJsonObject.jsonPath().getJsonObject("bookingid");
-
+        System.out.println("nihat");
         //3.Request yap
         Response response = given()
                 .when()

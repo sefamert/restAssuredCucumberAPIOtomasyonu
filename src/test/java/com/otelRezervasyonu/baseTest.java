@@ -16,7 +16,6 @@ public class baseTest
     body.put("totalprice",444);
     body.put("depositpaid",false);
 
-//test test
     JSONObject bookindDates = new JSONObject();
     bookindDates.put("checkin","2023-02-03");
     bookindDates.put("checkout","2023-04-06");
@@ -26,7 +25,6 @@ public class baseTest
 
     return body.toString();
 }
-
     protected Response createBooking(){
         Response response = given()
                 .when()
