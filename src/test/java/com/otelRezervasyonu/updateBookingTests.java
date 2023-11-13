@@ -1,11 +1,10 @@
 package com.otelRezervasyonu;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 
 /*curl -X PUT \
   https://restful-booker.herokuapp.com/booking/1 \
@@ -34,13 +33,13 @@ public class updateBookingTests extends baseTest {
         int bookingID = createBookingJsonObject.jsonPath().getJsonObject("bookingid");
         System.out.println("nihat");
         //3.Request yap
-        Response response = given()
+        Response response = given(spec)
                 .when()
                 .contentType(ContentType.JSON)
-                .header("Cookie" , "token= " +token) //Token@ i headerda gönderiyoruz çünkü yukarıda sayfa özelliklerinde o şekilde belirtmiş
+                .header("Cookie", "token= " + token) //Token@ i headerda gönderiyoruz çünkü yukarıda sayfa özelliklerinde o şekilde belirtmiş
                 .body(bookingObject())
-                .put("https://restful-booker.herokuapp.com/booking/" + bookingID);
-        response.prettyPrint();
+                .put("booking/" + bookingID);
+        //response.prettyPrint();
 
     }
 }
