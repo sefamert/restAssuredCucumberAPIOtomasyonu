@@ -1,7 +1,8 @@
 package com.otelRezervasyonu.tests;
 
-import com.otelRezervasyonu.models.Booking;
-import com.otelRezervasyonu.models.BookingDates;
+import com.otelRezervasyonu.modelsPojoSınıfları.Booking;
+import com.otelRezervasyonu.modelsPojoSınıfları.BookingDates;
+import com.otelRezervasyonu.modelsPojoSınıfları.BookingResponse;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -34,5 +35,11 @@ public class createBookingTests extends baseTest{
                 .post("booking");
 
     response.then().statusCode(200);
+
+    BookingResponse bookingResponse = response.as(BookingResponse.class);
+    System.out.println(bookingResponse + "Kaydedildi");
+
+    Assertions.assertEquals("udemy",bookingResponse.getBooking().getFirstname());
+    Assertions.assertEquals("pass",bookingResponse.getBooking().getAdditionalneeds());
     }
 }
