@@ -1,4 +1,4 @@
-package com.otelRezervasyonu.models;
+package com.otelRezervasyonu.modelsPojoSınıfları;
 
 public class Booking {
     private String firstname;
@@ -15,6 +15,9 @@ public class Booking {
         this.depositpaid = depositpaid;
         this.bookingdates = bookingDates;
         this.additionalneeds = additionalneeds;
+    }
+
+    public Booking() {
     }
 
     public String getFirstname() {

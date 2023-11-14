@@ -1,4 +1,4 @@
-package com.otelRezervasyonu.models;
+package com.otelRezervasyonu.modelsPojoSınıfları;
 
 public class BookingDates {
     private String checkin;
@@ -7,6 +7,9 @@ public class BookingDates {
     public BookingDates(String checkin, String checkout) {
         this.checkin = checkin;
         this.checkout = checkout;
+    }
+
+    public BookingDates() {
     }
 
     public String getCheckin() {
